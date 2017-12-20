@@ -1,17 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="ec.EcHelper"%>
 <%@ page import="beans.BuyDataBeans"%>
 <%@ page import="beans.UserDataBeans"%>
 <%@ page import=" java.util.ArrayList"%>
+<%
+	String validationMessage = (String) request.getAttribute("validationMessage");
+	UserDataBeans udb = (UserDataBeans)request.getAttribute("udb");
+	ArrayList<BuyDataBeans> bdbList = (ArrayList<BuyDataBeans>)request.getAttribute("bdbList");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ユーザー情報</title>
 <jsp:include page="/baselayout/head.html" />
-<%
-	String validationMessage = (String) request.getAttribute("validationMessage");
-	UserDataBeans udb = (UserDataBeans)request.getAttribute("udb");
-%>
 </head>
 <body>
 	<jsp:include page="/baselayout/header.jsp" />
@@ -72,20 +75,18 @@
 								</tr>
 							</thead>
 							<tbody>
-
+								<%
+								for (BuyDataBeans bdb: bdbList) {
+								%>
 								<tr>
-									<td class="center"><a href="UserBuyHistoryDetail?buy_id=1" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
-									<td class="center">1234年56月78日90時12分</td>
-									<td class="center">サンプル配送料金</td>
-									<td class="center"><123456789円円</td>
+									<td class="center"><a href="UserBuyHistoryDetail?buy_id=<%= bdb.getId() %>" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
+									<td class="center"><%= EcHelper.displayDate(bdb.getBuyDate()) %></td>
+									<td class="center"><%= bdb.getDeliveryMethodName() %></td>
+									<td class="center"><%= bdb.getTotalPrice()%>円</td>
 								</tr>
-								<tr>
-									<td class="center"><a href="UserBuyHistoryDetail?buy_id=2" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
-									<td class="center">1234年56月78日90時12分</td>
-									<td class="center">サンプル配送料金</td>
-									<td class="center"><123456789円円</td>
-								</tr>
-
+								<%
+								}
+								%>
 							</tbody>
 						</table>
 					</div>

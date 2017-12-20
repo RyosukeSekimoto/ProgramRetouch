@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Applications/Eclipse_4.7.1.app/Contents/tomcat/8/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="/Applications/Eclipse_4.7.1.app/Contents/tomcat/8/lib/servlet-api.jar" sourcepath="/var/folders/vm/vpq7csx17wb09w_wp3tb8tcr0000gn/T/.org.sf.feeling.decompiler1513739611827/source/tomcat-servlet-api-8.0.47-sources-1513746642520.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>

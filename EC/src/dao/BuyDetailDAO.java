@@ -20,7 +20,7 @@ public class BuyDetailDAO {
 	 * 購入詳細登録処理
 	 * @param bddb BuyDetailDataBeans
 	 * @throws SQLException
-	 * 			呼び出し元にスローさせるため
+	 * 		   呼び出し元にスローさせるため
 	 */
 	public static void insertBuyDetail(BuyDetailDataBeans bddb) throws SQLException {
 		Connection con = null;
@@ -50,7 +50,7 @@ public class BuyDetailDAO {
 	 * @return {BuyDataDetailBeans}
 	 * @throws SQLException
 	 */
-	public ArrayList<BuyDetailDataBeans> getBuyDataBeansListByBuyId(int buyId) throws SQLException {
+	public static ArrayList<BuyDetailDataBeans> getBuyDataBeansListByBuyId(int buyId) throws SQLException {
 		Connection con = null;
 		PreparedStatement st = null;
 		try {

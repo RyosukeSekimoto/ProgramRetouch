@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BuyDataBeans  implements Serializable {
+
 	private int id;
 	private int userId;
 	private int totalPrice;

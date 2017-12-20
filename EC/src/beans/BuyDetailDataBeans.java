@@ -3,6 +3,7 @@ package beans;
 import java.io.Serializable;
 
 public class BuyDetailDataBeans  implements Serializable {
+
 	private int id;
 	private int buyId;
 	private int itemId;
@@ -25,4 +26,6 @@ public class BuyDetailDataBeans  implements Serializable {
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
+
+
 }

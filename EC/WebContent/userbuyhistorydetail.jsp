@@ -1,4 +1,13 @@
 <%@	page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="ec.EcHelper"%>
+<%@ page import="beans.BuyDataBeans"%>
+<%@ page import="beans.ItemDataBeans"%>
+<%
+	BuyDataBeans bdb = (BuyDataBeans)request.getAttribute("bdb");
+	ArrayList<ItemDataBeans> buyDetailItemList = (ArrayList<ItemDataBeans>)request.getAttribute("buyDetailItemList");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,9 +38,9 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td class="center">1234年56月78日90時12分</td>
-									<td class="center">サンプル</td>
-									<td class="center">123456789円</td>
+									<td class="center"><%= EcHelper.displayDate(bdb.getBuyDate()) %></td>
+									<td class="center"><%= bdb.getDeliveryMethodName() %></td>
+									<td class="center"><%= bdb.getTotalPrice() %>円</td>
 								</tr>
 							</tbody>
 						</table>
@@ -52,21 +61,19 @@
 								</tr>
 							</thead>
 							<tbody>
+							<%
+							for(ItemDataBeans idb: buyDetailItemList) {
+							%>
 								<tr>
-									<td class="center">サンプル商品名1</td>
-									<td class="center">111111111円</td>
+									<td class="center"><%= idb.getName() %></td>
+									<td class="center"><%= idb.getPrice() %>円</td>
 								</tr>
+							<%
+							}
+							%>
 								<tr>
-									<td class="center">サンプル商品名2</td>
-									<td class="center">222222222円</td>
-								</tr>
-								<tr>
-									<td class="center">サンプル商品名3</td>
-									<td class="center">333333333円</td>
-								</tr>
-								<tr>
-									<td class="center">サンプル</td>
-									<td class="center">123456789円</td>
+									<td class="center"><%= bdb.getDeliveryMethodName() %></td>
+									<td class="center"><%= bdb.getDeliveryMethodPrice() %>円</td>
 								</tr>
 							</tbody>
 						</table>

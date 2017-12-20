@@ -2,7 +2,9 @@ package ec;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
@@ -119,6 +121,19 @@ public class EcHelper {
 
 		return false;
 
+	}
+
+	/**
+	 * Date型の日付をString型("yyyy年MM月dd日")に変換して返す
+	 * @param date	変換したいDate型の日付
+	 * @return		"yyyy年MM月dd日"表示の日付
+	 */
+	public static String displayDate(Date date) {
+
+            SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy年MM月dd日 kk時mm分");
+    		String displayDate = sdFormat.format(date);
+
+    		return displayDate;
 	}
 
 

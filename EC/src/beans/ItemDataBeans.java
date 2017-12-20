@@ -3,6 +3,7 @@ package beans;
 import java.io.Serializable;
 
 public class ItemDataBeans implements Serializable {
+
 	private int id;
 	private String name;
 	private String detail;

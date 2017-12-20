@@ -25,7 +25,7 @@ public class Cart extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		try {
-			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>) session.getAttribute("cart");
+			ArrayList<ItemDataBeans> cart = (ArrayList<ItemDataBeans>)session.getAttribute("cart");
 			//セッションにカートがない場合カートを作成
 			if (cart == null) {
 				cart = new ArrayList<ItemDataBeans>();

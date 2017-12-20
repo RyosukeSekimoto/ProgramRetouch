@@ -28,8 +28,10 @@ public class ItemSearchResult extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		try {
-
+			//リクエストパラメータを取得
+			request.setCharacterEncoding("UTF-8");
 			String searchWord = request.getParameter("search_word");
+
 			//表示ページ番号 未指定の場合 1ページ目を表示
 			int pageNum = Integer.parseInt(request.getParameter("page_num") == null ? "1" : request.getParameter("page_num"));
 			// 新たに検索されたキーワードをセッションに格納する
@@ -51,6 +53,7 @@ public class ItemSearchResult extends HttpServlet {
 			request.setAttribute("itemList", searchResultItemList);
 
 			request.getRequestDispatcher(EcHelper.SEARCH_RESULT_PAGE).forward(request, response);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.setAttribute("errorMessage", e.toString());
